@@ -1,0 +1,53 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.66.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 5ebfbd5082457328b3ca7ca519e678aa5505df01 Build.PL
+SHA1 1ab285e8f904d1f433fdc1adf0abf9d4fe091621 Changes
+SHA1 f57233d904be59b21840601074ffbdbd08c8a2fa MANIFEST
+SHA1 7d20e4e840781030202bb045d5ab81b3fd1b68b0 MANIFEST.SKIP
+SHA1 1d405c37984ef6b8da8c8badb8536261fd5c59cf META.yml
+SHA1 637ee205384852a0dca293ba4893387078daac73 Makefile.PL
+SHA1 ef30031070f8ab5a7b96f02325be8324ed5f0bfd README
+SHA1 a1fb11e8ffb5ae71b3a639348f5dddf93087d457 lib/Games/TicTacToe.pm
+SHA1 735f942b52be52b25e0c59f1a8f9ba78e0db9fa7 lib/Games/TicTacToe/Board.pm
+SHA1 c5d1b8eb7d817f4954fa41e87856254d0ec21f3a lib/Games/TicTacToe/Move.pm
+SHA1 a5399f40ce6c70031a6821618ad0494b81b05a6a lib/Games/TicTacToe/Player.pm
+SHA1 9280cd581593f935022320d5428a5c00e28a1f28 script/player.pl
+SHA1 0a26da777968fbcd82bc812cd292795534528d4f t/00-load.t
+SHA1 6f773b91f407b466927d843fa61994bd2ed3965b t/01-Games-Tictactoe-new.t
+SHA1 bbadf6c1785ad597d3924c3ee8987f486f549233 t/02-Games-Tictactoe-addPlayer.t
+SHA1 3d6f77cacc312bc070871b4c61227e4c04441180 t/03-Games-Tictactoe-getPlayers.t
+SHA1 325870a7a66580b69a352c20d497aeac60693c85 t/04-Games-Tictactoe-play.t
+SHA1 addc2522996c28fa2066302658914e7be5027fe4 t/05-Games-Tictactoe-isGameOver.t
+SHA1 ea6aa390a7ba9a4ee2987785656d8e7b2c27e875 t/06-Games-Tictactoe-Board-isFull.t
+SHA1 aba2c954809965830e037cc351aa82062d401a43 t/07-Games-Tictactoe-Board-setCell.t
+SHA1 a03d721af7c44bd4e35e635b739dd2ffa2ce89ef t/08-Games-Tictactoe-Board-getCell.t
+SHA1 f317ee2756672568b4aa56944cb31948ecf7fbe8 t/09-Games-Tictactoe-Player-new.t
+SHA1 8e1240b4669904989be377cb7821d9f28607916d t/10-Games-Tictactoe-Move-foundWinner.t
+SHA1 b492ce55877bcd8be90ec5e27775eff48c912cce t/11-Games-Tictactoe-Move-now.t
+SHA1 2b8ffb7e4f399af95d092743846ac8d438f2c53e t/manifest.t
+SHA1 0765c9ff0cc4319f415bb08d0053b7717a8284a2 t/pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.14 (MingW32)
+
+iQEcBAEBAgAGBQJOMY/PAAoJEPYcXBXhRYOhXXsH/0ZilPvg0xazLqYcNDLCBln7
+XN8ZDls+o1x4yN8NyfEQuk+fF1LRoZ2h/HO0uuWKhtTpWSz207clfFTc+Q6NPfs0
+hTDAAIxTTCTQ3H6yoqjHcJZ/GZKoQljtWcm/YvHfn+39RNJh0p5go7CRoz6CRnpJ
+jTcUg1coGH470Cu8xDAWmSlFvYA8lse5DvFsNls2JRTk0VEXPeFPwbhrf5fgKmLh
++wX3ZtxwswIkIvQujytsi+l74ZV0uT/1BA7mvlzWOlCwnGXuRJwRuEg7A7qc4ewO
+8PigkPU0kvC5bZs7IVNtU2+wuWvyl4Ff35shx0WZ1t5WPJyJTowiL7lECLCwt5w=
+=haAb
+-----END PGP SIGNATURE-----
