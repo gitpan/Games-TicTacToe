@@ -12,13 +12,13 @@ Games::TicTacToe::Move - Interface to the TicTacToe game's move.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
 $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 Readonly my $BEST_MOVE    => [5, 1, 3, 7, 9];
 Readonly my $WINNING_MOVE => [ [0, 1, 2],
                                [0, 3, 6],
@@ -125,7 +125,7 @@ sub _validate_move
     my $board = shift;
     croak("ERROR: Board not defined.\n") unless defined $board;
     
-    while (!(defined($move) && ($move >= 1) && ($move <= 9) && ($board->getCellIndex($move-1) eq ' ')))
+    while (!(defined($move) && ($move >= 1) && ($move <= 9) && ($board->getCell($move-1) eq ' ')))
     {
         print {*STDOUT} "Please make a valid move [1-9]: ";
         $move = <STDIN>;

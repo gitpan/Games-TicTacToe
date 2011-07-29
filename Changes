@@ -1,4 +1,8 @@
 Revision history for Games-TicTacToe
 
+0.02    Fri Jul 29 11:02:02 2011
+        - Fixed the issue with method renaming getCellIndex() to getCell().
+        - Also renamed the script player.pl to tictactoe.pl
+
 0.01    Thu Jul 28 10:00:00 2011
         - First version, released.

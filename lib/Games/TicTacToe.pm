@@ -16,11 +16,11 @@ Games::TicTacToe - Interface to the TicTacToe game.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 DESCRIPTION
 
@@ -149,7 +149,7 @@ sub play
         unless (defined($self->{players}) && scalar(@{$self->{players}}) == 2);
 
     my $move = Games::TicTacToe::Move::now($self->_getCurrentPlayer, $self->board);
-    $self->board->setCellIndex($move, $self->_getCurrentPlayer->symbol);
+    $self->board->setCell($move, $self->_getCurrentPlayer->symbol);
     $self->_resetCurrentPlayer();
 }
 
