@@ -18,16 +18,16 @@ name: Games-TicTacToe
 provides:
   Games::TicTacToe:
     file: lib/Games/TicTacToe.pm
-    version: 0.02
+    version: 0.03
   Games::TicTacToe::Board:
     file: lib/Games/TicTacToe/Board.pm
-    version: 0.02
+    version: 0.03
   Games::TicTacToe::Move:
     file: lib/Games/TicTacToe/Move.pm
-    version: 0.02
+    version: 0.03
   Games::TicTacToe::Player:
     file: lib/Games/TicTacToe/Player.pm
-    version: 0.02
+    version: 0.03
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03

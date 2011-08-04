@@ -4,6 +4,7 @@ use Mouse;
 use Mouse::Util::TypeConstraints;
 
 use Carp;
+use Readonly;
 use Data::Dumper;
 
 =head1 NAME
@@ -12,11 +13,12 @@ Games::TicTacToe::Board - Interface to the TicTacToe game's board.
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
+Readonly my $EMPTY => '\d';
 
 =head1 DESCRIPTION
 
@@ -24,7 +26,7 @@ The module used by the parent module Games::TicTacToe.
 
 =cut
 
-has 'cell' => (is => 'rw', isa => 'ArrayRef[Str]', default => sub { return [' ',' ',' ',' ',' ',' ',' ',' ',' ']; });
+has 'cell' => (is => 'rw', isa => 'ArrayRef[Str]', default => sub { return ['1','2','3','4','5','6','7','8','9']; });
 
 =head1 METHODS
 
@@ -39,7 +41,7 @@ sub isFull
     my $self = shift;
     foreach (0..8)
     {
-        return 0 if ($self->getCell($_) eq ' ');
+        return 0 if $self->_isCellEmpty($_);
     }
     return 1;
 }
@@ -116,6 +118,28 @@ sub _getCellRowCol
 
     my $index = ($row == 1)?(0):(($row == 2)?(3):(6));
     return $self->getCell(($index+$col)-1);
+}
+
+sub _isCellEmpty
+{
+    my $self  = shift;
+    my $index = shift;
+    
+    return 1 if ($self->getCell($index) =~ /$EMPTY/);
+    return 0;
+}
+
+sub _availableIndex
+{
+    my $self  = shift;
+    my $index = '';
+    
+    foreach (1..9)
+    {
+        $index .= $_ . "," if $self->_isCellEmpty($_-1);
+    }
+    $index =~ s/\,$//g;
+    return $index;
 }
 
 =head1 AUTHOR

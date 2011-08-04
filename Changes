@@ -1,5 +1,9 @@
 Revision history for Games-TicTacToe
 
+0.03    Thu Aug 04 15:38:00
+        - Initial board with index number 1-9.
+        - Prompt user the remaining available indexes.
+
 0.02    Fri Jul 29 11:02:02 2011
         - Fixed the issue with method renaming getCellIndex() to getCell().
         - Also renamed the script player.pl to tictactoe.pl

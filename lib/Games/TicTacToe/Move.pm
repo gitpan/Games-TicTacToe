@@ -12,13 +12,13 @@ Games::TicTacToe::Move - Interface to the TicTacToe game's move.
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
 $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 Readonly my $BEST_MOVE    => [5, 1, 3, 7, 9];
 Readonly my $WINNING_MOVE => [ [0, 1, 2],
                                [0, 3, 6],
@@ -99,12 +99,12 @@ sub _computerMove
     
     foreach (@$BEST_MOVE) 
     {
-        return $_ if ($board->getCell($_-1) eq ' ');
+        return $_ if $board->_isCellEmpty($_-1);
     }
 
     foreach (1..9)
     {
-        return $_ if ($board->getCell($_-1) eq ' ');
+        return $_ if $board->_isCellEmpty($_-1);
     }
 }
 
@@ -113,7 +113,7 @@ sub _validate_human_move
     my $board = shift;
     croak("ERROR: Board not defined.\n") unless defined $board;
     
-    print {*STDOUT} "What is your next move [1-9]? ";
+    print {*STDOUT} "What is your next move [".$board->_availableIndex()."]? ";
     my $move = <STDIN>;
     chomp($move);
     return _validate_move($move, $board);
@@ -125,9 +125,9 @@ sub _validate_move
     my $board = shift;
     croak("ERROR: Board not defined.\n") unless defined $board;
     
-    while (!(defined($move) && ($move >= 1) && ($move <= 9) && ($board->getCell($move-1) eq ' ')))
+    while (!(defined($move) && ($move >= 1) && ($move <= 9) && ($board->_isCellEmpty($move-1))))
     {
-        print {*STDOUT} "Please make a valid move [1-9]: ";
+        print {*STDOUT} "Please make a valid move [".$board->_availableIndex()."]: ";
         $move = <STDIN>;
         chomp($move);
     }
