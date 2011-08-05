@@ -12,11 +12,11 @@ Games::TicTacToe::Player - Interface to the TicTacToe game's player.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 DESCRIPTION
 
@@ -31,6 +31,18 @@ has 'type'   => (is => 'ro', isa => 'Player', default => 'H', required => 1);
 has 'symbol' => (is => 'ro', isa => 'Symbol', default => 'X', required => 1);
 
 =head1 METHODS
+
+=head2 otherSymbol()
+
+Returns opposition player's symbol.
+
+=cut
+
+sub otherSymbol
+{
+    my $self = shift;
+    return ($self->symbol eq 'X')?('O'):('X');
+}
 
 =head2 desc()
 
@@ -53,7 +65,7 @@ Returns the winning message for the player.
 sub getMessage
 {
     my $self = shift;
-    return sprintf("Congratulation, %s you won the game.\n", $self->desc);
+    return sprintf("Congratulation, %s won the game.\n", $self->desc);
 }
 
 =head1 AUTHOR

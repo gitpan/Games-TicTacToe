@@ -25,7 +25,6 @@ do
                 print {*STDOUT} $tictactoe->getGameBoard();
                 $tictactoe->play();
             }
-            print {*STDOUT} $tictactoe->getGameBoard();
         }
     }    
 } while (!defined($response) || ($response !~ /Y|N/i));

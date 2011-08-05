@@ -16,11 +16,11 @@ Games::TicTacToe - Interface to the TicTacToe game.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 DESCRIPTION
 
@@ -181,13 +181,15 @@ sub isGameOver
     {
         if (Games::TicTacToe::Move::foundWinner($player, $self->board))
         {
+            print {*STDOUT} $self->getGameBoard();
             print {*STDOUT} $player->getMessage;
             return 1;
         }    
     }
     if ($self->board->isFull())
     {
-        print {*STDOUT} "Game drawn!!!\n";
+        print {*STDOUT} $self->getGameBoard();
+        print {*STDOUT} "Game drawn !!!\n";
         return 1;
     }
     

@@ -13,12 +13,12 @@ Games::TicTacToe::Board - Interface to the TicTacToe game's board.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
-Readonly my $EMPTY => '\d';
+our $VERSION = '0.04';
+Readonly my $EMPTY  => '\d';
 
 =head1 DESCRIPTION
 
@@ -59,10 +59,10 @@ sub setCell
     my $symbol = shift;
     croak("ERROR: Missing cell index for TicTacToe Board.\n") unless defined $index;
     croak("ERROR: Missing symbol for TicTacToe Board.\n") unless defined $symbol;
-    croak("ERROR: Invalid cell index value for TicTacToe Board.\n") unless ($index =~ /^[1-9]$/);
+    croak("ERROR: Invalid cell index value for TicTacToe Board.\n") unless ($index =~ /^[0-8]$/);
     croak("ERROR: Invalid symbol for TicTacToe Board.\n") unless ($symbol =~ /^[X|O]$/i);
     
-    $self->{cell}->[$index-1] = $symbol;
+    $self->{cell}->[$index] = $symbol;
 }
 
 =head2 getCell()
@@ -140,6 +140,31 @@ sub _availableIndex
     }
     $index =~ s/\,$//g;
     return $index;
+}
+
+sub _belongsToPlayer
+{
+    my $self   = shift;
+    my $cells  = shift;
+    my $player = shift;
+    
+    return 1 
+        if ($self->_cellContains($cells->[0], $player->symbol)
+            && 
+            $self->_cellContains($cells->[1], $player->symbol)
+            &&
+            $self->_cellContains($cells->[2], $player->symbol));
+    return 0;
+}
+
+sub _cellContains
+{
+    my $self   = shift;
+    my $index  = shift;
+    my $symbol = shift;
+    
+    return 1 if ($self->getCell($index) eq $symbol);
+    return 0;
 }
 
 =head1 AUTHOR

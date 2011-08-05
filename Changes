@@ -1,6 +1,10 @@
 Revision history for Games-TicTacToe
 
-0.03    Thu Aug 04 15:38:00
+0.04    Fri Aug 05 14:25:26 2011
+        - Improves the computer move.
+        - Slight change to the TicTacToe player script.
+
+0.03    Thu Aug 04 15:38:00 2011
         - Initial board with index number 1-9.
         - Prompt user the remaining available indexes.
 

@@ -12,14 +12,14 @@ Games::TicTacToe::Move - Interface to the TicTacToe game's move.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
 $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
 
-our $VERSION = '0.03';
-Readonly my $BEST_MOVE    => [5, 1, 3, 7, 9];
+our $VERSION = '0.04';
+Readonly my $BEST_MOVE    => [4, 0, 2, 6, 8];
 Readonly my $WINNING_MOVE => [ [0, 1, 2],
                                [0, 3, 6],
                                [0, 4, 8],
@@ -51,12 +51,7 @@ sub foundWinner
     
     foreach (@$WINNING_MOVE)
     {
-        return 1
-            if (($board->getCell($_->[0]) eq $player->symbol)
-                && 
-                ($board->getCell($_->[1]) eq $player->symbol)
-                &&
-                ($board->getCell($_->[2]) eq $player->symbol));
+        return 1 if $board->_belongsToPlayer($_, $player);
     }
     return 0;
 }
@@ -80,7 +75,7 @@ sub now
     }
     else
     {
-        return _computerMove($board);
+        return _computerMove($board, $player);
     }
 }
 
@@ -94,18 +89,49 @@ sub _humanMove
 
 sub _computerMove
 {
-    my $board = shift;
+    my $board  = shift;
+    my $player = shift;
     croak("ERROR: Board not defined.\n") unless defined $board;
+    
+    my $move = _getBestMove($board, $player);
+    return $move unless ($move == -1);
     
     foreach (@$BEST_MOVE) 
     {
-        return $_ if $board->_isCellEmpty($_-1);
+        return $_ if $board->_isCellEmpty($_);
     }
 
-    foreach (1..9)
+    foreach (0..8)
     {
-        return $_ if $board->_isCellEmpty($_-1);
+        return $_ if $board->_isCellEmpty($_);
     }
+}
+
+sub _getBestMove
+{
+    my $board  = shift;
+    my $player = shift;
+
+    my $move = _isWinningMove($board, $player->symbol);
+    return $move unless ($move == -1);
+    return _isWinningMove($board, $player->otherSymbol());
+}
+
+sub _isWinningMove
+{
+    my $board  = shift;
+    my $symbol = shift;
+    
+    foreach (@{$WINNING_MOVE})
+    {
+        return $_->[0]
+            if ($board->_isCellEmpty($_->[0]) && $board->_cellContains($_->[1], $symbol) && $board->_cellContains($_->[2], $symbol));
+        return $_->[1]
+            if ($board->_isCellEmpty($_->[1]) && $board->_cellContains($_->[0], $symbol) && $board->_cellContains($_->[2], $symbol));
+        return $_->[2]
+            if ($board->_isCellEmpty($_->[2]) && $board->_cellContains($_->[0], $symbol) && $board->_cellContains($_->[1], $symbol));
+    }
+    return -1;
 }
 
 sub _validate_human_move
@@ -131,7 +157,7 @@ sub _validate_move
         $move = <STDIN>;
         chomp($move);
     }
-    return $move;
+    return ($move-1);
 }
 
 =head1 AUTHOR
