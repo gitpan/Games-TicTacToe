@@ -1,5 +1,9 @@
 Revision history for Games-TicTacToe
 
+0.05    Tue Aug 09 13:15:11 2011
+        - Made Readonly v1.03 as minimum requirement.
+        - Prepared the distribution using the Module::Signature v0.68.
+
 0.04    Fri Aug 05 14:25:26 2011
         - Improves the computer move.
         - Slight change to the TicTacToe player script.

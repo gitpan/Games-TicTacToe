@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.66.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,17 +14,17 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 5ebfbd5082457328b3ca7ca519e678aa5505df01 Build.PL
-SHA1 d8d432a1b7f9d0dec3fd73dadff62997eb80f654 Changes
+SHA1 080808cbc2e344f69b420bed973b4bc29f2ec63f Build.PL
+SHA1 a584c5ed1ad4fca8e1b78e07433b8a67d6eea4db Changes
 SHA1 836c2cbc42ae33904be87265b5cc69175697c21f MANIFEST
 SHA1 7d20e4e840781030202bb045d5ab81b3fd1b68b0 MANIFEST.SKIP
-SHA1 37ff07c7bc62972242bb93310d9434b25b430e80 META.yml
-SHA1 637ee205384852a0dca293ba4893387078daac73 Makefile.PL
+SHA1 15d6a507ecc4b6c504491d1ebdb5f0c7bba91b6a META.yml
+SHA1 1411c5bafb330314065e958ac481ed31b8cf208e Makefile.PL
 SHA1 ef30031070f8ab5a7b96f02325be8324ed5f0bfd README
-SHA1 e3e82ea72829dbbe04d191f03b2f882ceae1df06 lib/Games/TicTacToe.pm
-SHA1 3774ca4ee5c87eec58cf454a80b558b40372fa4d lib/Games/TicTacToe/Board.pm
-SHA1 3397854cbf7c8807e5405b91cec404ed44fb31c9 lib/Games/TicTacToe/Move.pm
-SHA1 e2bfe22df1ed6c2193660dd06558c6bce575fbed lib/Games/TicTacToe/Player.pm
+SHA1 740a273d709841ef3022edabff1a1a37d29c58d3 lib/Games/TicTacToe.pm
+SHA1 493fdda5bfb8acc28c550033b33efdbed01f126e lib/Games/TicTacToe/Board.pm
+SHA1 253356b12769a83c6b2c7b1d18cd9f6245a45d4b lib/Games/TicTacToe/Move.pm
+SHA1 774b868a00566268e3258ccfe129f73029a75277 lib/Games/TicTacToe/Player.pm
 SHA1 342db331696524f17f14b44c1388672fe6d94519 script/tictactoe.pl
 SHA1 0a26da777968fbcd82bc812cd292795534528d4f t/00-load.t
 SHA1 6f773b91f407b466927d843fa61994bd2ed3965b t/01-Games-Tictactoe-new.t
@@ -43,11 +43,11 @@ SHA1 0765c9ff0cc4319f415bb08d0053b7717a8284a2 t/pod.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v2.0.14 (MingW32)
 
-iQEcBAEBAgAGBQJOO/BeAAoJEPYcXBXhRYOhi6kIAJnBIB7ingUTpVCTAertsVf5
-icL9tnUbRj0hrbYmZon9b13Ay7FK0UXOgOyHGRX8f27KqT8Wc4nDqNN9ksv9T+28
-lfEKnFkPnqmw+0xqOWzf+d8cN2tRkyA7BJgv2nCUlc/TYeOmHPLGbuJDgr/msWL8
-vUtq1LqxT9QupymQhtiYRu2tQoDkFi0a95THXkrGqEpinbtuGqZwlU49An/e/sFI
-6L+O8IyIGbSBDmWZaI+7Ep+ZcVyWDaamJsLRAlN7vmahky7OXwEBhvXOnd59exxo
-VU/uiKXept7wqWyo7YVUobEYT2ODsbL5tOw8jMAVoDp+fmq8mMXmZjsdGfRZdBQ=
-=Xydz
+iQEcBAEBAgAGBQJOQSUjAAoJEPYcXBXhRYOhJmUH/1CK9yZsgp7gO47AHmk14M+k
+Iq31RM+nkcTPlSZs1MaPztt6sUr2PK+q2v5ih0IvdrWeMHumaXlIoZ5Gd8dwRMxl
+VF5scR7mC+3EcJliNsgSMJm3L79nWESR7A/RD+/u+HEfCX+JFCByqZEkJiSfabKS
+v8Z2+67aKRqQWmD+LWApRYgwpeD4Vkl2KSnErQe/J1CbrBS7VPLExzwVl04tkull
+UkyhJFNF2YkPOfio+wQIBKiweUykIIafET4WiQy3/vReAY0L/3FkPhyuRtC2maCB
+6OOcFYJbRZ4LkXTiM1XLP4pYF0hBpMG7SZRQW/6i5qyk0lzGl3p/uynRWKXZ6w0=
+=P8Mh
 -----END PGP SIGNATURE-----

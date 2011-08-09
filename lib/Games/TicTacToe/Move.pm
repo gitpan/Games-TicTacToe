@@ -12,13 +12,13 @@ Games::TicTacToe::Move - Interface to the TicTacToe game's move.
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
 $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 Readonly my $BEST_MOVE    => [4, 0, 2, 6, 8];
 Readonly my $WINNING_MOVE => [ [0, 1, 2],
                                [0, 3, 6],
