@@ -1,14 +1,13 @@
-Build.PL
 Changes
 MANIFEST
 MANIFEST.SKIP
-SIGNATURE
 Makefile.PL
 README
 lib/Games/TicTacToe.pm
 lib/Games/TicTacToe/Board.pm
 lib/Games/TicTacToe/Move.pm
 lib/Games/TicTacToe/Player.pm
+lib/Games/TicTacToe/Params.pm
 script/tictactoe.pl
 t/00-load.t
 t/01-Games-Tictactoe-new.t
@@ -24,5 +23,5 @@ t/10-Games-Tictactoe-Move-foundWinner.t
 t/11-Games-Tictactoe-Move-now.t
 t/manifest.t
 t/pod.t
-META.yml
-SIGNATURE    Added here by Module::Build
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)

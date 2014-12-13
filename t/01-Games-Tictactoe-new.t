@@ -7,10 +7,10 @@ use Test::More tests => 3;
 my ($tictactoe);
 
 eval { $tictactoe = Games::TicTacToe->new(current => 'm'); };
-like($@, qr/Attribute \(current\) does not pass the type constraint/);
+like($@, qr/isa check for "current" failed/);
 
 eval { $tictactoe = Games::TicTacToe->new(board => undef); };
-like($@, qr/Attribute \(board\) does not pass the type constraint/);
+like($@, qr/isa check for "board" failed/);
 
 eval { $tictactoe = Games::TicTacToe->new(players => undef); };
-like($@, qr/Attribute \(players\) does not pass the type constraint/);
+like($@, qr/isa check for "players" failed/);

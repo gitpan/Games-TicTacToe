@@ -5,28 +5,30 @@ use Games::TicTacToe;
 
 $SIG{'INT'} = sub { print {*STDOUT} "\n\nCaught Interrupt (^C), Aborting\n"; exit(1); };
 
-my ($response);
-do
-{
-    print {*STDOUT} "Do you wish to play tic tac toe (Y/N)? ";
-    $response = <STDIN>;
-    if (defined $response)
-    {
-        chomp($response) ;
-        print {*STDOUT} "Invalid response, please enter (Y/N).\n"    
-            unless ($response =~ /Y|N/i);
-
-        if ($response =~ /Y/i)
-        {
-            my $tictactoe = Games::TicTacToe->new();
-            $tictactoe->addPlayer();
-            while (!$tictactoe->isGameOver())
-            {
-                print {*STDOUT} $tictactoe->getGameBoard();
-                $tictactoe->play();
-            }
+my $response = 'Y';
+while (defined($response)) {
+    if ($response =~ /^Y$/i) {
+        my $tictactoe = Games::TicTacToe->new;
+        $tictactoe->addPlayer();
+        my $index = 1;
+        while (!$tictactoe->isGameOver()) {
+            print {*STDOUT} $tictactoe->getGameBoard()
+                if ($index %2 == 1);
+            $tictactoe->play();
+            $index++;
         }
-    }    
-} while (!defined($response) || ($response !~ /Y|N/i));
 
-print {*STDOUT} "Thank you.\n";
+        print {*STDOUT} "Do you wish to continue (Y/N)? ";
+        $response = <STDIN>;
+        chomp($response);
+    }
+    elsif ($response =~ /^N$/i) {
+        print {*STDOUT} "Thank you.\n";
+        last;
+    }
+    elsif ($response !~ /^[Y|N]$/i) {
+        print {*STDOUT} "Invalid response, please enter (Y/N): ";
+        $response = <STDIN>;
+        chomp($response);
+    }
+}

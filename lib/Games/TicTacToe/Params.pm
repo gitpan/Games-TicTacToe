@@ -1,10 +1,10 @@
-package Games::TicTacToe::Player;
+package Games::TicTacToe::Params;
 
-$Games::TicTacToe::Player::VERSION = '0.06';
+$Games::TicTacToe::Params::VERSION = '0.06';
 
 =head1 NAME
 
-Games::TicTacToe::Player - Interface to the TicTacToe game's player.
+Games::TicTacToe::Params - Placeholder for parameters for Games::TicTacToe.
 
 =head1 VERSION
 
@@ -13,58 +13,39 @@ Version 0.06
 =cut
 
 use 5.006;
+use strict; use warnings;
 use Data::Dumper;
-use Games::TicTacToe::Params qw($Type $Symbol);
+use vars qw(@ISA @EXPORT @EXPORT_OK);
+
+require Exporter;
+@ISA       = qw(Exporter);
+@EXPORT_OK = qw($Board $Player $Players $Symbol $Type);
+
+our $Board = sub {
+    die "isa check for 'board' failed.\n"
+        unless (defined $_[0] && $_[0]->isa('Games::TicTacToe::Board'));
+};
+
+our $Player = sub {
+    die "isa check for 'player' failed.\n"
+        unless (defined $_[0] && $_[0] =~ /^[H|C]$/i);
+};
+
+our $Players = sub {
+    die "isa check for 'players' failed.\n" unless (defined $_[0]);
+};
+
+our $Symbol = sub {
+    die "isa check for 'symbol' failed" unless (defined $_[0] && $_[0] =~ /^[X|O]$/i);
+};
+
+our $Type = sub {
+    die "isa check for 'type' failed" unless (defined $_[0] && $_[0] =~ /^[H|C]$/i);
+};
 
 =head1 DESCRIPTION
 
 It is used internally by L<Games::TicTacToe>.
-
-=cut
-
-use Moo;
-use namespace::clean;
-
-has 'type'   => (is => 'ro', isa => $Type,   default => sub { return 'H' }, required => 1);
-has 'symbol' => (is => 'ro', isa => $Symbol, default => sub { return 'X' }, required => 1);
-
-=head1 METHODS
-
-=head2 otherSymbol()
-
-Returns opposition player's symbol.
-
-=cut
-
-sub otherSymbol {
-    my ($self) = @_;
-
-    return ($self->symbol eq 'X')?('O'):('X');
-}
-
-=head2 desc()
-
-Returns the description of the player.
-
-=cut
-
-sub desc {
-    my ($self) = @_;
-
-    return ($self->{type} eq 'H')?('Human'):('Computer');
-}
-
-=head2 getMessage()
-
-Returns the winning message for the player.
-
-=cut
-
-sub getMessage {
-    my ($self) = @_;
-
-    return sprintf("Congratulation, %s won the game.\n", $self->desc);
-}
 
 =head1 AUTHOR
 
@@ -85,7 +66,7 @@ as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Games::TicTacToe::Player
+    perldoc Games::TicTacToe::Params
 
 You can also look for information at:
 
@@ -148,4 +129,4 @@ OF THE PACKAGE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1; # End of Games::TicTacToe::Player
+1; # End of Games::TicTacToe::Params

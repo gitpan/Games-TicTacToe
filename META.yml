@@ -1,33 +1,27 @@
 ---
-abstract: 'Interface to the TicTacToe game.'
+abstract: 'Interface to the TicTacToe (3x3) game.'
 author:
   - 'Mohammad S Anwar <mohammad.anwar@yahoo.com>'
 build_requires:
-  Mouse: 0.93
-  Readonly: 1.03
-  Test::More: 0
-  Test::Warn: 0
+  Test::More: '0'
+  Test::Warn: '0'
 configure_requires:
-  Module::Build: 0.36
-generated_by: 'Module::Build version 0.3607'
-license: perl
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 7, CPAN::Meta::Converter version 2.141520'
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Games-TicTacToe
-provides:
-  Games::TicTacToe:
-    file: lib/Games/TicTacToe.pm
-    version: 0.05
-  Games::TicTacToe::Board:
-    file: lib/Games/TicTacToe/Board.pm
-    version: 0.05
-  Games::TicTacToe::Move:
-    file: lib/Games/TicTacToe/Move.pm
-    version: 0.05
-  Games::TicTacToe::Player:
-    file: lib/Games/TicTacToe/Player.pm
-    version: 0.05
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Moo: '0'
+  namespace::clean: '0'
+  perl: '5.006'
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.05
+  repository: https://github.com/Manwar/Games-TicTacToe.git
+version: '0.06'
